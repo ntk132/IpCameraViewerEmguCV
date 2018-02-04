@@ -40,6 +40,7 @@
             this.imageBox7 = new Emgu.CV.UI.ImageBox();
             this.imageBox8 = new Emgu.CV.UI.ImageBox();
             this.btCompare = new System.Windows.Forms.Button();
+            this.btReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox3)).BeginInit();
@@ -157,11 +158,22 @@
             this.btCompare.UseVisualStyleBackColor = true;
             this.btCompare.Click += new System.EventHandler(this.btCompare_Click);
             // 
+            // btReset
+            // 
+            this.btReset.Location = new System.Drawing.Point(543, 626);
+            this.btReset.Name = "btReset";
+            this.btReset.Size = new System.Drawing.Size(75, 23);
+            this.btReset.TabIndex = 14;
+            this.btReset.Text = "Reset";
+            this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1245, 661);
+            this.Controls.Add(this.btReset);
             this.Controls.Add(this.btCompare);
             this.Controls.Add(this.imageBox8);
             this.Controls.Add(this.imageBox6);
@@ -200,6 +212,7 @@
         private Emgu.CV.UI.ImageBox imageBox7;
         private Emgu.CV.UI.ImageBox imageBox8;
         private System.Windows.Forms.Button btCompare;
+        private System.Windows.Forms.Button btReset;
     }
 }
 
