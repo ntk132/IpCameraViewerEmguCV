@@ -12,6 +12,7 @@ namespace IpCameraViewerEmguCV
 {
     public partial class Form1 : Form
     {
+        #region Define variables
         private const int MAX_LENGTH_OF_ARRAY = 2;
 
         private Capture capture1 = null;
@@ -23,6 +24,7 @@ namespace IpCameraViewerEmguCV
         /* Test: using the array */
         private Capture[] listCapture = new Emgu.CV.Capture[MAX_LENGTH_OF_ARRAY];
         private ImageBox[] listImage = new ImageBox[MAX_LENGTH_OF_ARRAY];
+        #endregion
 
         public Form1()
         {
@@ -65,6 +67,11 @@ namespace IpCameraViewerEmguCV
         }
         #endregion
 
+        /// <summary>
+        /// Function used for getting frame from camera of the imagebox01
+        /// </summary>
+        /// <param name="sender">Imagebox1</param>
+        /// <param name="arg">Event argument</param>
         private void ProcessFrame1(object sender, EventArgs arg)
         {
             int height = imageBox1.Height;
@@ -77,6 +84,11 @@ namespace IpCameraViewerEmguCV
             imageBox1.Image = frame;
         }
 
+        /// <summary>
+        /// Function used for getting frame from camera of the imagebox02
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void ProcessFrame2(object sender, EventArgs arg)
         {
             int height = imageBox2.Height;
@@ -120,7 +132,7 @@ namespace IpCameraViewerEmguCV
             InitListCapture();
         }
 
-
+        #region Init The capture by array capure
         /// <summary>
         /// Init a capture to image from the camera with a url stream
         /// </summary>
@@ -141,7 +153,7 @@ namespace IpCameraViewerEmguCV
                 MessageBox.Show("Fail: " + url);
             }
         }
-
+        #endregion
 
         /// <summary>
         /// Init the multi capture for each camera
@@ -159,7 +171,7 @@ namespace IpCameraViewerEmguCV
             // Init capture 1
             try
             {
-                capture1 = new Emgu.CV.Capture("rtsp://admin:Parking123@10.0.0.100:554/Streaming/Channels/101");
+                capture1 = new Emgu.CV.Capture("rtsp://admin:Parking123@192.168.0.110:554/Streaming/Channels/101");
                 capture1.ImageGrabbed += ProcessFrame1;
             }
             catch
@@ -170,7 +182,7 @@ namespace IpCameraViewerEmguCV
             // Init capture 2
             try
             {
-                capture2 = new Emgu.CV.Capture("rtsp://admin:optimusprime242@10.0.0.120:554/Streaming/Channels/101");
+                capture2 = new Emgu.CV.Capture("rtsp://admin:Parking123@192.168.0.200:554/Streaming/Channels/101");
                 capture2.ImageGrabbed += ProcessFrame2;
             }
             catch
@@ -223,12 +235,21 @@ namespace IpCameraViewerEmguCV
             //((Image)bmp).Save()
         }
 
-        // Compare - show the images were saved in database to imagebox
+        /// <summary>
+        /// Compare - show the images were saved in database to imagebox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btCompare_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btReset_Click(object sender, EventArgs e)
         {
             btStart.Enabled = false;
